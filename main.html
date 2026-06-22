@@ -1,23 +1,25 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercício Número</title>
+    <title>Document</title>
 </head>
 <body>
-    <section>
-        <h1>O seu número é: <span id="numero-titulo"></span></h1>
+    <form class="form" action="" method="get">
+        <p>Nome<input type="text" class="nome"></p>
+        <p>Sobrenome<input type="text" class="sobrenome"></p>
+        <p>Peso<input type="text" class="peso"></p>
+        <p>Altura<input type="text" class="altura"></p>
+        <input type="submit" value="Enviar">
+    </form>
+
+    <div class="resultado">
+
         
-        <div id="texto">
-            <p>Raiz quadrada: <strong id="raiz"></strong></p>
-            <p>É inteiro: <strong id="inteiro"></strong></p>
-            <p>É NaN: <strong id="nan"></strong></p>
-            <p>Arredondado para cima: <strong id="cima"></strong></p>
-            <p>Arredondado para baixo: <strong id="baixo"></strong></p>
-            <p>Com duas casas decimais: <strong id="decimais"></strong></p>
-        </div>
-    </section>
+    </div>
 </body>
-<script src="./main.js"></script>
+<script src="./main.js">
+
+</script>
 </html>

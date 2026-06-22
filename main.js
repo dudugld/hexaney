@@ -34,38 +34,70 @@
 //document.body.innerHTML += `Seu nome em MAIUSCULO: ${nomeMAIUSCULO} <br>`
 //document.body.innerHTML += `Seu nome em minusculo: ${nomeminusculo} <br>`
 
-const respostaPrompt = prompt('Digite um número: ');
+// const respostaPrompt = prompt('Digite um número: ');
 
-const numero = Number(respostaPrompt);
+// const numero = Number(respostaPrompt);
 
-const numeroTitulo = document.getElementById("numero-titulo");
-numeroTitulo.innerHTML = respostaPrompt;
+// const numeroTitulo = document.getElementById("numero-titulo");
+// numeroTitulo.innerHTML = respostaPrompt;
 
-const ehNaN = Number.isNaN(numero) || respostaPrompt.trim() === "";
+// const ehNaN = Number.isNaN(numero) || respostaPrompt.trim() === "";
 
-if (ehNaN) {
-    document.getElementById('nan').innerHTML = "Sim";
-    document.getElementById('raiz').innerHTML = "Não é um número válido";
-    document.getElementById('inteiro').innerHTML = "Não é um número válido";
-    document.getElementById('cima').innerHTML = "Não é um número válido";
-    document.getElementById('baixo').innerHTML = "Não é um número válido";
-    document.getElementById('decimais').innerHTML = "Não é um número válido";
-} else {
+// if (ehNaN) {
+//     document.getElementById('nan').innerHTML = "Sim";
+//     document.getElementById('raiz').innerHTML = "Não é um número válido";
+//     document.getElementById('inteiro').innerHTML = "Não é um número válido";
+//     document.getElementById('cima').innerHTML = "Não é um número válido";
+//     document.getElementById('baixo').innerHTML = "Não é um número válido";
+//     document.getElementById('decimais').innerHTML = "Não é um número válido";
+// } else {
 
-    document.getElementById('nan').innerHTML = "Não";
+//     document.getElementById('nan').innerHTML = "Não";
 
-    if (numero >= 0) {
-        document.getElementById('raiz').innerHTML = Math.sqrt(numero);
-    } else {
-        document.getElementById('raiz').innerHTML = "Não existe raiz real de número negativo";
+//     if (numero >= 0) {
+//         document.getElementById('raiz').innerHTML = Math.sqrt(numero);
+//     } else {
+//         document.getElementById('raiz').innerHTML = "Não existe raiz real de número negativo";
+//     }
+
+//     const ehInteiro = numero % 1 === 0;
+//     document.getElementById('inteiro').innerHTML = ehInteiro ? "Sim" : "Não";
+
+//     document.getElementById('cima').innerHTML = Math.ceil(numero);
+
+//     document.getElementById('baixo').innerHTML = Math.floor(numero);
+
+//     document.getElementById('decimais').innerHTML = numero.toFixed(2);
+// }
+
+function validaForm(){
+  const form = document.querySelector('.form')
+  const resultado = document.querySelector('.resultado')
+  let pessoas = []
+
+  form.onsubmit = function(evento){
+    evento.preventDefault()
+    const nome = document.querySelector('.nome')
+    const sobrenome = document.querySelector('.sobrenome')
+    const peso = document.querySelector('.peso')
+    const altura = document.querySelector('.altura')
+    //console.log(nome.value, sobrenome.value, peso.value, altura.value)
+    const fabricaPessoas = {
+      nome: nome.value,
+      sobrenome: sobrenome.value,
+      peso: peso.value,
+      altura: altura.value
     }
+      pessoas.push(fabricaPessoas)
 
-    const ehInteiro = numero % 1 === 0;
-    document.getElementById('inteiro').innerHTML = ehInteiro ? "Sim" : "Não";
+      resultado.innerHTML += `<p> Nome: ${fabricaPessoas.nome} <br>
+      Sobrenome: ${fabricaPessoas.sobrenome} <br>
+      Altura: ${fabricaPessoas.altura} <br>
+      Peso: ${fabricaPessoas.peso} <br>
+      </p>`
 
-    document.getElementById('cima').innerHTML = Math.ceil(numero);
+  }
 
-    document.getElementById('baixo').innerHTML = Math.floor(numero);
-
-    document.getElementById('decimais').innerHTML = numero.toFixed(2);
 }
+
+validaForm()
